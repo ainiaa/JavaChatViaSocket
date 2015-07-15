@@ -57,6 +57,7 @@ public class ChatServer extends Thread {
         }
         listModel.addElement(client.toString() + listModel.getSize());
         serverUI.getClientjList().setModel(listModel);
+        
     }
 
     public void println(String s) {

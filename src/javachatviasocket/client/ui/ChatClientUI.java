@@ -1,6 +1,7 @@
 package javachatviasocket.client.ui;
 
 import javachatviasocket.client.ChatClientThread;
+import javax.swing.JOptionPane;
 import javax.swing.JTextArea;
 
 /**
@@ -35,6 +36,11 @@ public class ChatClientUI extends javax.swing.JFrame {
         clientjList = new javax.swing.JList();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowClosing(java.awt.event.WindowEvent evt) {
+                formWindowClosing(evt);
+            }
+        });
 
         msgHistoryjTextArea.setColumns(20);
         msgHistoryjTextArea.setRows(5);
@@ -92,6 +98,16 @@ public class ChatClientUI extends javax.swing.JFrame {
         currentMsgjTextArea.setText("");
     }//GEN-LAST:event_sendMsgjButtonMouseClicked
 
+    private void formWindowClosing(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosing
+        int a = JOptionPane.showConfirmDialog(null, "确定关闭吗？", "温馨提示",
+                JOptionPane.YES_NO_OPTION);
+        if (a == 1) {
+            System.exit(0); // 关闭
+        } else {
+            
+        }
+    }//GEN-LAST:event_formWindowClosing
+
     /**
      * @param args the command line arguments
      */
@@ -126,13 +142,13 @@ public class ChatClientUI extends javax.swing.JFrame {
             }
         });
     }
-    
+
     public JTextArea getMsgHistoryjTextArea() {
         return msgHistoryjTextArea;
     }
 
     private final ChatClientThread chatClientThread;
-    
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JList clientjList;
     private javax.swing.JTextArea currentMsgjTextArea;

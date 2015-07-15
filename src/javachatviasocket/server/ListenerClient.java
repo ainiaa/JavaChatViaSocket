@@ -23,7 +23,7 @@ public class ListenerClient extends Thread {
 
     //为每一个客户端创建线程等待接收信息，然后把信息广播出去
     public void run() {
-        String msg = "";
+        String msg;
         while (true) {
             try {
                 reader = new BufferedReader(new InputStreamReader(
@@ -33,7 +33,7 @@ public class ListenerClient extends Thread {
                 sendMsg(msg);
 
             } catch (IOException e) {
-                println(e.toString());
+                println("ioException : " + e.toString());
                 // e.printStackTrace();
                 break;
             }
